@@ -1,3 +1,5 @@
+package Grafos;
+
 public class Dijkstra {
     
     public static String vertices[]={"a","b","c","d","e","f"};
@@ -10,7 +12,7 @@ public class Dijkstra {
         {999,999,999,6,2,0}};
     
     public static void main(String[] args){
-        Grafos grafo = new Grafos(vertices, pesos);
+        Grafo grafo = new Grafo(vertices, pesos);
         
         grafo.imprimir();
         

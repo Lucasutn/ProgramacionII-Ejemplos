@@ -1,3 +1,4 @@
+package Grafos;
 
 public class Grafo {
 
@@ -11,7 +12,7 @@ public class Grafo {
         this.distancias = new int[vertices.length];
     }
 
-    public Grafos(String[] vertices, int[][] pesos) {
+    public Grafo(String[] vertices, int[][] pesos) {
         this.vertices = vertices;
         matrizPesos = pesos;
         this.distancias = new int[vertices.length];
