@@ -198,6 +198,36 @@ public class ArbolBinario {
             }
         }
     }
+
+    boolean hoja=false;
+
+    public boolean isHoja() {
+        return hoja;
+    }
+
+    public void esHoja(NodoABinario node){
+
+        esHojaRecursivo(this.raiz,node);
+
+    }
+
+    private void esHojaRecursivo(NodoABinario node, NodoABinario nodoVerificar){
+
+
+
+        if (node == null)
+            return;
+
+        if(node.valor.compareTo(nodoVerificar.valor)== 0 && node.izq == null && node.der == null)
+            hoja=true;
+
+
+        esHojaRecursivo(node.izq, nodoVerificar);
+        esHojaRecursivo(node.der, nodoVerificar);
+
+
+
+    }
 }
 
 
