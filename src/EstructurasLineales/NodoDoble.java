@@ -1,3 +1,5 @@
+package EstructurasLineales;
+
 /**
  * Clase Nodo doble enlazado.
  */

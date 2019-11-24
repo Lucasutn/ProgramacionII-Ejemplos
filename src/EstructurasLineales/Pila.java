@@ -1,3 +1,5 @@
+package EstructurasLineales;
+
 /**
  *  Clase pila.
  */

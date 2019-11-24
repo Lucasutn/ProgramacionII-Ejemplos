@@ -44,18 +44,33 @@ public class ArbolBinario {
     }
 
     //// Método interno para realizar recorrido preOrden recursivo
+    int numeroHojas=0;
+
+    public int getNumeroHojas() {
+        return numeroHojas;
+    }
+
     private void preOrder(NodoABinario nodo) {
 
         if (nodo == null)
             return;
 
         System.out.println(nodo.valor);
+        if (nodo.der == null && nodo.izq == null)
+            numeroHojas++;
 
         preOrder(nodo.izq);
         preOrder(nodo.der);
     }
 
     //// Método interno para realizar recorrido inOrden recursivo
+
+    int cont=0;
+
+    public int getCont() {
+        return cont;
+    }
+
     private void inOrder(NodoABinario nodo) {
 
         if (nodo == null)
@@ -63,6 +78,7 @@ public class ArbolBinario {
 
         inOrder(nodo.izq);
         System.out.println(nodo.valor);
+        cont++;
         inOrder(nodo.der);
     }
 
@@ -198,6 +214,83 @@ public class ArbolBinario {
             }
         }
     }
+
+
+    public NodoABinario getRaiz() {
+        return raiz;
+    }
+
+    /**
+     *
+     * */
+
+    public int countChildren(NodoABinario node)
+    {
+        if ( node == null )
+            return 0;
+        return 1 + countChildren(node.izq) + countChildren(node.der);
+    }
+
+    public int profundidadNodoIzq(NodoABinario nodo){
+
+        if(nodo==null)
+            return 0;
+        return 1 + profundidadNodoIzq(nodo.izq);
+    }
+
+    public int profundidadNodoDer(NodoABinario nodo){
+
+        if(nodo==null)
+            return 0;
+        return 1 + profundidadNodoDer(nodo.der);
+    }
+
+    public int profundidadIzqDer(NodoABinario nodo){
+        if(nodo==null)
+            return 0;
+        return 1 + profundidadNodoIzq(nodo.der);
+
+    }
+
+    public int profundidadDerIzq(NodoABinario nodo){
+        if(nodo==null)
+            return 0;
+        return 1 + profundidadNodoIzq(nodo.izq);
+    }
+
+    public int calculoProfundidad(){
+
+        int profundidad=0;
+
+        int a=profundidadNodoIzq(this.raiz);
+        int b=profundidadNodoDer(this.raiz);
+        int c=profundidadIzqDer(this.raiz.izq);
+        int d=profundidadDerIzq(this.raiz.der);
+
+        int [] valores = {a,b,c,d};
+
+        for (int num: valores) {
+
+            if(num>profundidad){
+                profundidad=num;
+            }
+
+
+        }
+
+
+        return profundidad;
+    }
+
+
+//   public int sumDepthOfAllChildren(NodoABinario node, int depth)
+//    {
+//        if ( node == null )
+//            return 0;  // starting to see a pattern?
+//        return depth + sumDepthOfAllChildren(node.izq, depth + 1) +
+//                sumDepthOfAllChildren(node.der, depth + 1);
+//    }
+
 }
 
 

@@ -17,6 +17,19 @@ public class Dijkstra {
         grafo.imprimir();
         
         grafo.calcularDijkstra();
+
+        System.out.println("\n");
+
+        String [] Agrafo = {"a","b","c","d","f"};
+        Grafo grafo1 = new Grafo(Agrafo);
+
+        grafo1.conectar("a","b",1);
+        grafo1.conectar("a","c",1);
+        grafo1.conectar("a","d",1);
+        grafo1.conectar("b","f",1);
+        grafo1.conectar("d","f",1);
+
+        grafo1.imprimir();
     }
     
 }
